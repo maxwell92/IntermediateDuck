@@ -10,3 +10,4 @@ ADD . /go/bin
 WORKDIR /go/bin
 
 ENTRYPOINT ["/go/bin/main"]
+
