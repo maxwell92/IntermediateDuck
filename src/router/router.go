@@ -3,6 +3,7 @@ package router
 import (
 	"contract"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -25,19 +26,26 @@ func (r Router) RegistAndRun() {
 func (r Router) Handle(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
 	case "GET":
-		r.Get(w)
+		r.Get(w, req)
 	case "POST":
-		r.Post(w)
+		r.Post(w, req)
 	}
 }
 
-func (r Router) Get(w http.ResponseWriter) {
+func (r Router) Get(w http.ResponseWriter, req *http.Request) {
 	// fmt.Fprintf(w, "Hello Get\n")
 	fmt.Fprintln(w, r.Contract.Get.String())
 }
 
 // Need to validate the output and expected output
-func (r Router) Post(w http.ResponseWriter) {
+func (r Router) Post(w http.ResponseWriter, req *http.Request) {
 	// fmt.Fprintf(w, "Hello Post\n")
-	fmt.Fprintln(w, r.Contract.Post.String())
+	body, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		panic(err)
+	}
+	expected := r.Contract.Post.Encode()
+	// fmt.Fprintln(w, r.Contract.Post.String())
+	fmt.Fprintln(w, string(body) == string(expected))
+	fmt.Printf("%s\n%s\n", string(body), string(expected))
 }

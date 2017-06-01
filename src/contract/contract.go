@@ -11,12 +11,17 @@ type Response struct {
 	Data    string `json:"data"`
 }
 
-func (r Response) String() string {
+func (r Response) Encode() []byte {
 	data, err := json.Marshal(r)
 	if err != nil {
 		panic(err)
 	}
 
+	return data
+}
+
+func (r Response) String() string {
+	data := r.Encode()
 	return string(data)
 }
 
