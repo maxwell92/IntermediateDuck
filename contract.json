@@ -5,17 +5,5 @@
         "message": "操作成功",
         "data": "[{\"id\":0,\"templateName\":\"testnginx\",\"orgName\":\"ops\",\"modifiedAt\":\"\",\"userName\":\"\",\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"err\"},{\"id\":0,\"templateName\":\"testapp\",\"orgName\":\"ops\",\"modifiedAt\":\"\",\"userName\":\"\",\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"ok\"}]"  
     },
-    "post": {
-        "targetOrg": "dev",
-        "templateList": [
-            {
-                "templateName": "testnginx",
-                "orgName": "ops"
-            },
-            {
-                "templateName": "testapp",
-                "orgName": "ops"
-            }
-        ]      
-    }
+    "post": "{\"targetOrg\": \"dev\",\"templateList\": [{\"templateName\": \"testnginx\",\"orgName\": \"ops\"},{\"templateName\": \"testapp\",\"orgName\": \"ops\"}]}"
 }

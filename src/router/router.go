@@ -44,8 +44,9 @@ func (r Router) Post(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	expected := r.Contract.Post.Encode()
+	//expected := r.Contract.Post.Encode()
+	expected := r.Contract.Post
 	// fmt.Fprintln(w, r.Contract.Post.String())
-	fmt.Fprintln(w, string(body) == string(expected))
-	fmt.Printf("%s\n%s\n", string(body), string(expected))
+	fmt.Fprintln(w, string(body) == expected)
+	fmt.Printf("%s\n%s\n", string(body), expected)
 }

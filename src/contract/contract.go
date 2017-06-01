@@ -25,10 +25,18 @@ func (r Response) String() string {
 	return string(data)
 }
 
+/*
 type Contract struct {
 	URL  string   `json:"url"`
 	Get  Response `json:"get"`
 	Post Response `json:"post"`
+}
+*/
+
+type Contract struct {
+	URL  string   `json:"url"`
+	Get  Response `json:"get"`
+	Post string   `json:"post"`
 }
 
 func NewContract(file string) *Contract {
