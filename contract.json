@@ -1,9 +1,9 @@
 {
-    "url": "/api/v1/organizations/1/users/3/templates/move",
+    "url": "/api/v1/deployments/datacenters",
     "get": {
         "code": 0,
         "message": "操作成功",
-        "data": "[{\"id\":0,\"templateName\":\"testnginx\",\"orgName\":\"ops\",\"modifiedAt\":\"\",\"userName\":\"\",\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"err\"},{\"id\":0,\"templateName\":\"testapp\",\"orgName\":\"ops\",\"modifiedAt\":\"\",\"userName\":\"\",\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"ok\"}]"  
+        "data": "[{\"name\":\"办公网\",\"id\":7},{\"name\":\"兆维电信\",\"id\":2},{\"name\":\"世纪互联\",\"id\":4},{\"name\":\"生产内测\",\"id\":9},{\"name\":\"全部\",\"id\":0}]" 
     },
-    "post": "{\"targetOrg\": \"dev\",\"templateList\": [{\"templateName\": \"testnginx\",\"orgName\": \"ops\"},{\"templateName\": \"testapp\",\"orgName\": \"ops\"}]}"
+    "post": ""
 }
