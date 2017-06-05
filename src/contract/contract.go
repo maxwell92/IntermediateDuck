@@ -39,13 +39,18 @@ type Contract struct {
 	Post string   `json:"post"`
 }
 
-func NewContract(file string) *Contract {
+type ContractList struct {
+	Contracts []Contract `json:"contracts"`
+}
+
+func NewContract(file string) *ContractList {
 	data, err := ioutil.ReadFile(file)
 	if err != nil {
 		panic(err)
 	}
 
-	c := new(Contract)
+	c := new(ContractList)
+	c.Contracts = make([]Contract, 0)
 	err = json.Unmarshal([]byte(data), c)
 	if err != nil {
 		panic(err)
