@@ -1,5 +1,5 @@
 {
-    "url": "/api/v1/deployments/datacenter",
+    "url": "/api/v1/deployments/datacenters",
     "get": {
         "code": 0,
         "message": "操作成功",
