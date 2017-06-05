@@ -8,59 +8,46 @@ import (
 )
 
 type Router struct {
-	Contract *contract.Contract
+	ContractList *contract.ContractList
 }
 
-func NewRouter(c *contract.Contract) *Router {
+func NewRouter(c *contract.ContractList) *Router {
 	r := new(Router)
-	r.Contract = c
+	r.ContractList = c
 	return r
 }
 
 func (r Router) RegistAndRun() {
-	http.HandleFunc(r.Contract.URL, r.Handle)
+	for _, c := range r.ContractList.Contracts {
+		ctr := new(contract.Contract)
+		ctr.URL = c.URL
+		ctr.Get = c.Get
+		ctr.Post = c.Post
+
+		http.HandleFunc(ctr.URL, func(w http.ResponseWriter, req *http.Request) {
+			switch req.Method {
+			case "GET":
+				func(w http.ResponseWriter, req *http.Request) {
+					fmt.Fprintln(w, ctr.Get.String())
+				}(w, req)
+			case "POST":
+				func(w http.ResponseWriter, req *http.Request) {
+					body, err := ioutil.ReadAll(req.Body)
+					if err != nil {
+						panic(err)
+					}
+					expected := ctr.Post
+					fmt.Fprintln(w, string(body) == expected)
+				}(w, req)
+			case "OPTIONS":
+				func(w http.ResponseWriter, req *http.Request) {
+					w.Header().Set("Access-Control-Allow-Origin", "*")
+					fmt.Fprintln(w, "")
+				}(w, req)
+			}
+		})
+	}
+
 	fmt.Println("Running...")
 	http.ListenAndServe(":8080", nil)
-}
-
-func (r Router) Handle(w http.ResponseWriter, req *http.Request) {
-	switch req.Method {
-	case "GET":
-		r.Get(w, req)
-	case "POST":
-		r.Post(w, req)
-	case "OPTIONS":
-		r.Options(w, req)
-	}
-}
-
-func (r Router) Options(w http.ResponseWriter, req *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	/*
-		w.Header().Set("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
-		w.Header().Set("Access-Control-Allow-Headers", "authorization,cache-control,orgid,pragma,userid")
-	*/
-
-	fmt.Fprintln(w, "")
-}
-
-func (r Router) Get(w http.ResponseWriter, req *http.Request) {
-	// fmt.Fprintf(w, "Hello Get\n")
-
-	fmt.Fprintln(w, r.Contract.Get.String())
-}
-
-// Need to validate the output and expected output
-func (r Router) Post(w http.ResponseWriter, req *http.Request) {
-	// fmt.Fprintf(w, "Hello Post\n")
-
-	body, err := ioutil.ReadAll(req.Body)
-	if err != nil {
-		panic(err)
-	}
-	//expected := r.Contract.Post.Encode()
-	expected := r.Contract.Post
-	// fmt.Fprintln(w, r.Contract.Post.String())
-	fmt.Fprintln(w, string(body) == expected)
-	//fmt.Printf("%s\n%s\n", string(body), expected)
 }
