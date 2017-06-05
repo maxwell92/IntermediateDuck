@@ -32,6 +32,11 @@ func (r Router) Handle(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
+func (r Router) OPTIONS(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Controll-Allow-Origin", "*")
+	fmt.Fprintln(w, "")
+}
+
 func (r Router) Get(w http.ResponseWriter, req *http.Request) {
 	// fmt.Fprintf(w, "Hello Get\n")
 	w.Header().Set("Access-Controll-Allow-Origin", "*")
