@@ -36,8 +36,10 @@ func (r Router) Handle(w http.ResponseWriter, req *http.Request) {
 
 func (r Router) Options(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
-	w.Header().Set("Access-Control-Allow-Headers", "authorization,cache-control,orgid,pragma,userid")
+	/*
+		w.Header().Set("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "authorization,cache-control,orgid,pragma,userid")
+	*/
 
 	fmt.Fprintln(w, "")
 }
