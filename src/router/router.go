@@ -29,10 +29,12 @@ func (r Router) Handle(w http.ResponseWriter, req *http.Request) {
 		r.Get(w, req)
 	case "POST":
 		r.Post(w, req)
+	case "OPTIONS":
+		r.Options(w, req)
 	}
 }
 
-func (r Router) OPTIONS(w http.ResponseWriter, req *http.Request) {
+func (r Router) Options(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Controll-Allow-Origin", "*")
 	fmt.Fprintln(w, "")
 }
