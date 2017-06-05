@@ -34,12 +34,14 @@ func (r Router) Handle(w http.ResponseWriter, req *http.Request) {
 
 func (r Router) Get(w http.ResponseWriter, req *http.Request) {
 	// fmt.Fprintf(w, "Hello Get\n")
+	w.Header().Set("Access-Controll-Allow-Origin", "*")
 	fmt.Fprintln(w, r.Contract.Get.String())
 }
 
 // Need to validate the output and expected output
 func (r Router) Post(w http.ResponseWriter, req *http.Request) {
 	// fmt.Fprintf(w, "Hello Post\n")
+	w.Header().Set("Access-Controll-Allow-Origin", "*")
 	body, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		panic(err)
