@@ -36,6 +36,9 @@ func (r Router) Handle(w http.ResponseWriter, req *http.Request) {
 
 func (r Router) Options(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Controll-Allow-Origin", "*")
+	w.Header().Set("Access-Controll-Allow-Methods", "GET, POST")
+	w.Header().Set("Access-Controll-Allow-Headers", "authorization, cache-control, origid, pragma, userid")
+
 	fmt.Fprintln(w, "")
 }
 
