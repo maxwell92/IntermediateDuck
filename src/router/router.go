@@ -45,7 +45,7 @@ func (r Router) Options(w http.ResponseWriter, req *http.Request) {
 func (r Router) Get(w http.ResponseWriter, req *http.Request) {
 	// fmt.Fprintf(w, "Hello Get\n")
 	w.Header().Set("Access-Controll-Allow-Origin", "*")
-	w.Header().Set("Access-Controll-Allow-Methods", "GET,POST")
+	w.Header().Set("Access-Controll-Allow-Methods", "GET,POST,OPTIONS")
 	w.Header().Set("Access-Controll-Allow-Headers", "authorization,cache-control,orgid,pragma,userid")
 
 	fmt.Fprintln(w, r.Contract.Get.String())
@@ -55,7 +55,7 @@ func (r Router) Get(w http.ResponseWriter, req *http.Request) {
 func (r Router) Post(w http.ResponseWriter, req *http.Request) {
 	// fmt.Fprintf(w, "Hello Post\n")
 	w.Header().Set("Access-Controll-Allow-Origin", "*")
-	w.Header().Set("Access-Controll-Allow-Methods", "GET,POST")
+	w.Header().Set("Access-Controll-Allow-Methods", "GET,POST,OPTIONS")
 	w.Header().Set("Access-Controll-Allow-Headers", "authorization,cache-control,orgid,pragma,userid")
 
 	body, err := ioutil.ReadAll(req.Body)
