@@ -42,6 +42,7 @@ func (r Router) RegistAndRun() {
 			case "OPTIONS":
 				func(w http.ResponseWriter, req *http.Request) {
 					w.Header().Set("Access-Control-Allow-Origin", "*")
+					w.Header().Set("Access-Control-Allow-Headers", "authorization,cache-control,orgid,pragma,userid")
 					fmt.Fprintln(w, "")
 				}(w, req)
 			}
