@@ -39,7 +39,12 @@ func (r Router) RegistAndRun() {
 						panic(err)
 					}
 					expected := ctr.Post
-					fmt.Fprintln(w, string(body) == expected)
+					ok := string(body) == expected
+					if ok {
+						fmt.Fprintln(w, string(body) == expected)
+					} else {
+						fmt.Fprintln(w, "received: %s\nexpected: %s\n", string(body), expected)
+					}
 				}(w, req)
 			case "OPTIONS":
 				func(w http.ResponseWriter, req *http.Request) {
