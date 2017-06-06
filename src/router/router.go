@@ -43,7 +43,7 @@ func (r Router) RegistAndRun() {
 					if ok {
 						fmt.Fprintln(w, string(body) == expected)
 					} else {
-						fmt.Fprintln(w, "received: %s\nexpected: %s\n", string(body), expected)
+						fmt.Fprintf(w, "received: %s\nexpected: %s\n", string(body), expected)
 					}
 				}(w, req)
 			case "OPTIONS":
