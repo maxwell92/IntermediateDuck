@@ -28,10 +28,12 @@ func (r Router) RegistAndRun() {
 			switch req.Method {
 			case "GET":
 				func(w http.ResponseWriter, req *http.Request) {
+					w.Header().Set("Access-Control-Allow-Origin", "*")
 					fmt.Fprintln(w, ctr.Get.String())
 				}(w, req)
 			case "POST":
 				func(w http.ResponseWriter, req *http.Request) {
+					w.Header().Set("Access-Control-Allow-Origin", "*")
 					body, err := ioutil.ReadAll(req.Body)
 					if err != nil {
 						panic(err)
