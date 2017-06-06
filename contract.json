@@ -1,6 +1,23 @@
 {
     "contracts": [
         {
+            "url": "/api/v1/organizations/3/users/1/templates/move",
+            "get": {
+                "code":0,
+                "message":"操作成功",
+                "data":"[{\"id\":0,\"templateName\":\"testnginx\",\"orgName\":\"ops\",\"modifiedAt\":\"\",\"userName\":\"\",\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"err\"},{\"id\":0,\"templateName\":\"testapp\",\"orgName\":\"ops\",\"modifiedAt\":\"\",\"userName\":\"\",\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"err\"}]"
+            },
+            "post": "{\"targetOrg\": \"dev\",\"templateList\": [{\"templateName\": \"testnginx\",\"orgName\": \"ops\"},{\"templateName\": \"testapp\",\"orgName\": \"ops\"}]}" 
+        },
+        {
+            "url": "/api/v1/organizations/3/users/1/templates/all",
+            "get": {
+                "code":0,
+                "message":"操作成功",
+                "data":"[{\"id\":737,\"templateName\":\"ci\",\"orgName\":\"citest\",\"modifiedAt\":\"2017-06-05T15:16:05+08:00\",\"userName\":\"liyao.miao\"},{\"id\":120,\"templateName\":\"2048temp\",\"orgName\":\"dev\",\"modifiedAt\":\"2016-11-18T15:49:25+08:00\",\"userName\":\"liyao.miao\"},{\"id\":610,\"templateName\":\"healthz\",\"orgName\":\"dev\",\"modifiedAt\":\"2017-03-14T14:36:40+08:00\",\"userName\":\"xueyan.xu\"},{\"id\":735,\"templateName\":\"nc-template\",\"orgName\":\"dev\",\"modifiedAt\":\"2017-05-24T14:44:13+08:00\",\"userName\":\"hao.wu\"},{\"id\":731,\"templateName\":\"new\",\"orgName\":\"dev\",\"modifiedAt\":\"2017-05-22T10:56:11+08:00\",\"userName\":\"xueyan.xu\"},{\"id\":729,\"templateName\":\"testapp\",\"orgName\":\"dev\",\"modifiedAt\":\"2017-05-15T11:29:55+08:00\",\"userName\":\"liyao.miao\"},{\"id\":480,\"templateName\":\"testnginx\",\"orgName\":\"dev\",\"modifiedAt\":\"2017-05-12T10:20:15+08:00\",\"userName\":\"xueyan.xu\"},{\"id\":736,\"templateName\":\"bac-app-nc\",\"orgName\":\"ops\",\"modifiedAt\":\"2017-06-05T13:57:49+08:00\",\"userName\":\"liyao.miao\"},{\"id\":739,\"templateName\":\"demo1\",\"orgName\":\"ops\",\"modifiedAt\":\"2017-06-06T10:00:10+08:00\",\"userName\":\"xueyan.xu\"},{\"id\":740,\"templateName\":\"demo2\",\"orgName\":\"ops\",\"modifiedAt\":\"2017-06-06T11:08:05+08:00\",\"userName\":\"xueyan.xu\"},{\"id\":722,\"templateName\":\"marui\",\"orgName\":\"testns\",\"modifiedAt\":\"2017-05-11T18:02:19+08:00\",\"userName\":\"liyao.miao\"},{\"id\":587,\"templateName\":\"testdatasource\",\"orgName\":\"testns\",\"modifiedAt\":\"2017-03-10T16:38:07+08:00\",\"userName\":\"user.only\"},{\"id\":637,\"templateName\":\"testhealthz\",\"orgName\":\"testns\",\"modifiedAt\":\"2017-03-30T10:01:16+08:00\",\"userName\":\"liyao.miao\"}]"
+            } 
+        },
+        {
             "url": "/api/v1/deployments/datacenters",
             "get": {
                 "code": 0,

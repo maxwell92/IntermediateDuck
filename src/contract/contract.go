@@ -9,6 +9,8 @@ type Response struct {
 	Code    int32  `json:"code"`
 	Message string `json:"message"`
 	Data    string `json:"data"`
+	Name    string `json:"name,omitempty"`
+	Comment string `json:"comment,omitempty"`
 }
 
 func (r Response) Encode() []byte {
