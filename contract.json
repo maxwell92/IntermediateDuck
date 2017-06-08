@@ -1,6 +1,15 @@
 {
     "contracts": [
         {
+            "url": "/api/v1/datacenters/1/deployments/brief",
+            "get": {"code":0,"message":"操作成功","data":"[{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"dev\",\"deploymentName\":\"2048\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"dev\",\"deploymentName\":\"redis-master\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"dev\",\"deploymentName\":\"twice\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"ops\",\"deploymentName\":\"bac\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"ops\",\"deploymentName\":\"demo3\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"ops\",\"deploymentName\":\"test1\",\"serviceName\":\"test1-svc\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"ops\",\"deploymentName\":\"ui\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"yce\",\"deploymentName\":\"redis-master\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"yce\",\"deploymentName\":\"redis-slave\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"yce\",\"deploymentName\":\"yce\",\"serviceName\":\"yce-svc\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"citest\",\"deploymentName\":\"ci\",\"serviceName\":\"ci-svc\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"citest\",\"deploymentName\":\"helloworld\",\"serviceName\":\"helloworld-svc\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"citest\",\"deploymentName\":\"intermediateduck\",\"serviceName\":\"intermediateduck-svc\",\"srcDcId\":0,\"dstDcId\":0},{\"dcId\":1,\"dcName\":\"兆维电信\",\"orgName\":\"citest\",\"deploymentName\":\"mockduck\",\"serviceName\":\"mockduck-svc\",\"srcDcId\":0,\"dstDcId\":0}]"}
+        },
+        {
+            "url": "/api/v1/datacenters/1/deployments/move",
+            "get": {"code":0,"message":"操作成功","data":"[{\"dcId\":1,\"dcName\":\"\",\"orgName\":\"ops\",\"deploymentName\":\"test1\",\"serviceName\":\"test1-svc\",\"srcDcId\":0,\"dstDcId\":0,\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"ok\"},{\"dcId\":1,\"dcName\":\"\",\"orgName\":\"ops\",\"deploymentName\":\"demo3\",\"serviceName\":\"\",\"srcDcId\":0,\"dstDcId\":0,\"srcOrgName\":\"ops\",\"dstOrgName\":\"dev\",\"status\":\"ok\"}]"},
+            "post": "{\"targetOrg\":\"dev\",\"targetDcId\":1,\"deploymentList\":[{\"dcId\":1,\"orgName\":\"ops\",\"deploymentName\":\"test1\",\"serviceName\":\"test1-svc\"},{\"dcId\":1,\"orgName\":\"ops\",\"deploymentName\":\"demo3\"}]}" 
+        },
+        {
             "url": "/api/v1/organizations/3/users/1/templates/move",
             "get": {
                 "code":0,
